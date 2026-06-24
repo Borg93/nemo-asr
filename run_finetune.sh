@@ -12,9 +12,9 @@
 #   sv-SE = prompt slot 24; lang_field=target_lang; config lr=2.0 is a Noam MULTIPLIER, so we
 #   use an explicit CosineAnnealing peak; config defaults is_tarred=true so we pass is_tarred=false.
 set -euo pipefail
-source /root/.venv/bin/activate
+VENV=${VENV:-.venv}; [ -f "$VENV/bin/activate" ] && source "$VENV/bin/activate"   # on the dev box: VENV=/root/.venv
 
-NEMO_DIR=${NEMO_DIR:-/root/NeMo}                 # existing clone (matches installed nemo)
+NEMO_DIR=${NEMO_DIR:-./NeMo}                      # clone created by setup.sh (this box: /root/NeMo)
 DATA=${DATA:-/workspace/sv_asr/data}            # output of prepare_data.py (must be visible to all ranks)
 EXP=${EXP:-/workspace/sv_asr/ckpt}              # checkpoints -> persistent volume
 DEVICES=${DEVICES:-1}                            # number of GPUs on this node

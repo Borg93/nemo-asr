@@ -1,0 +1,32 @@
+[project]
+name = "nemo-asr-swedish"
+version = "0.1.0"
+description = "Fine-tune Nemotron 3.5 ASR (cache-aware streaming RNNT) on Swedish"
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+# Core, lockable deps. NeMo is installed separately by setup.sh (pinned to the same
+# commit) because NeMo's repo declares its own torch index (cu13/cpu) which conflicts
+# with our cu128 index inside a single `uv lock`.
+dependencies = [
+    "torch",
+    "torchaudio",
+    "soundfile>=0.13",
+    "librosa>=0.10",
+    "datasets>=2.18",
+    "Cython",
+    "packaging",
+    "huggingface-hub",
+]
+
+[tool.uv]
+package = false
+
+# torch/torchaudio come from the CUDA 12.8 (Blackwell sm_120) wheel index, not PyPI.
+[tool.uv.sources]
+torch = { index = "pytorch-cu128" }
+torchaudio = { index = "pytorch-cu128" }
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
