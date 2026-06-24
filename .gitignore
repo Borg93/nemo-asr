@@ -1,0 +1,29 @@
+# Data & model artifacts — never commit (huge; regenerate via the scripts)
+*.wav
+*.nemo
+*.ckpt
+*.tar
+*_manifest.json
+sv_asr_data/
+sv_asr/
+data/
+data400/
+wavs/
+checkpoints/
+ckpt/
+hfcache/
+
+# Logs / scratch
+*.log
+events.out.tfevents.*
+nemo_experiments/
+lightning_logs/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
