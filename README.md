@@ -89,5 +89,5 @@ tarred shards / read HF parquet directly via Lhotse (`type: parquet`), or a RAM 
 | `run_finetune.sh` | fine-tune (1→N GPUs) |
 | `run_eval.sh` / `run_infer.sh` | streaming WER eval / transcription |
 | `merge_tokenizers.py` | tokenizer merge for new-language adaptation |
-| `docs/` | inference & deploy; new-language adaptation |
+| `docs/` | inference & deploy; new-language adaptation; **results.md** (run 1 findings) |
 | `pyproject.toml` / `uv.lock` / `requirements-frozen.txt` | pinned, reproducible deps |
